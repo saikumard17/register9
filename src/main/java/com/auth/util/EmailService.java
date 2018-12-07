@@ -1,4 +1,4 @@
-package com.utils;
+package com.auth.util;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;

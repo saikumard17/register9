@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.auth.model.User;
 import com.auth.service.SecurityService;
 import com.auth.service.UserService;
+import com.auth.util.PaytmPayment;
 import com.auth.validator.UserValidator;
 
 @Controller
@@ -30,6 +31,10 @@ public class UserController {
 
         return "registration";
     }
+   
+    
+    
+    
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {

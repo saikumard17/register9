@@ -80,7 +80,7 @@
                                     <a href="${contextPath}/registration">
                                     	<button class="btn btn-warning" type="button">Register</button>
                                     </a>
-                                    	<button class="btn btn-info" id="to-recover" type="button"><i class="fa fa-lock m-r-5"></i> Lost password?</button>	
+                                    	<button class="btn btn-info" id="to-recover" type="button">Lost password?</button>	
                                         <button class="btn btn-success float-right" type="submit">Login</button>
                                     </div>
                                 </div>

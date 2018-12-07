@@ -101,6 +101,7 @@
                         <!-- ============================================================== -->
                         <c:if test="${pageContext.request.userPrincipal.name != null}">
 					        <form id="logoutForm" method="POST" action="${contextPath}/logout">
+					            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					        </form>
 					
 					        
@@ -129,11 +130,11 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="fas fa-home"></i><span class="hide-menu"><b>Dashboard</b></span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="fas fa-upload font-15"></i><span class="hide-menu"><b>Naukari9</b></span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i class="fab fa-maxcdn font-15"></i><span class="hide-menu"><b>Monster9</b></span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false"><i class="fas fa-wrench"></i><span class="hide-menu"><b>Settings</b></span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" onclick="document.forms['logoutForm'].submit()" aria-expanded="false"><i class="fas fa-power-off font-24"></i><span class="hide-menu"><b>Log Out</b></span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="fas fa-home"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="fas fa-upload font-15"></i><span class="hide-menu">Naukari9</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i class="fab fa-maxcdn font-15"></i><span class="hide-menu">Monster9</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false"><i class="fas fa-wrench"></i><span class="hide-menu">Settings</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" onclick="document.forms['logoutForm'].submit()" aria-expanded="false"><i class="fas fa-power-off font-24"></i><span class="hide-menu">Log Out</span></a></li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -211,10 +212,9 @@
                                 </section>
                                 <h3>Finish</h3>
                                 <section>
-                                <a href='${contextPath}/initiatePayment'>
-                                    <button type="button" class="btn btn-success btn-lg">Complete your Payment</button>
+                                    <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required">
+                                    <label for="acceptTerms">I agree with the Terms and Conditions.</label>
                                 </section>
-                               </a>
                             </div>
                         </form>
                     </div>
@@ -293,10 +293,7 @@
             return form.valid();
         },
         onFinished: function(event, currentIndex) {
-        	const Http = new XMLHttpRequest();
-        	const url='https://localhost:5000/initiatePayment';
-        	Http.open("GET", url);
-        	Http.send();
+            alert("Submitted!");
         }
     });
 
